@@ -7,13 +7,14 @@ int main()
 {
 	int n, q, k;
 	char c;
-	Heap *heap = new Heap;
+	Heap *min_heap = new Heap;
+	Heap *max_heap = new Heap;
 	cin >> n;
 	long long int *tab = new long long int[n];
 	for (int i = 0; i < n; i++)
 	{
 		cin >> tab[i];
-
+		min_heap->push(tab[i]);
 	}
 
 	cin >> q;

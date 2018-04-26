@@ -6,18 +6,15 @@ private:
 	struct node
 	{
 		long long value;
-		node *left, *right;
-		bool isToBig;
-		node(long long X)
+		int number;
+		node(long long X, int n)
 		{
 			value = X;
-			left = nullptr;
-			right = nullptr;
-			isToBig = false;
+			number = n;
 		}
 	};
 	node *root, *minimum, *maximum;
-
+	static int numberCounter;
 public:
 	Heap();
 	void push(long long X);
