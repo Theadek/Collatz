@@ -1,24 +1,25 @@
 #pragma once
+#include <stdint.h>
 
 class Heap
 {
 private:
-	struct node
-	{
-		long long value;
-		int number;
-		node(long long X, int n)
+	struct node {
+		uint32_t *value;
+		node *left, *right, *parent;
+		node(uint32_t* value, node* parent)
 		{
-			value = X;
-			number = n;
+			this->value = value;
+			this->parent = parent;
+			right = left = nullptr;
 		}
 	};
-	node *root, *minimum, *maximum;
-	static int numberCounter;
+	node* root;
+
 public:
 	Heap();
-	void push(long long X);
-	void Collatz(char m);
-
+	void push(uint32_t* X);
+	void Collatz_s();
+	void Collatz_l();
 	~Heap();
 };
