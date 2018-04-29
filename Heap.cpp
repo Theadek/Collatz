@@ -17,20 +17,22 @@ void Heap::push(uint32_t* X)
 		if (*root->value == *X) { //taka sama wartosc co root
 			root = new node(X, nullptr);
 			current->parent = root;
-			root->right = current->right;
-			root->right->parent = root;
-			current->right = nullptr;
+			if (current->right != nullptr) {
+				root->right = current->right;
+				root->right->parent = root;
+				current->right = nullptr;
+			}
 			root->left = current;
 		}
 		else {
 			if (*root->value > *X) {
-				isLeft = false;
-			}
-			else {
 				isLeft = true;
 			}
+			else {
+				isLeft = false;
+			}
 			while (true) {
-				if (*current->value < *X) {
+				if (*current->value > *X) {
 					if (current->left == nullptr) {
 						current->left = new node(X, current);
 						break;
@@ -39,7 +41,7 @@ void Heap::push(uint32_t* X)
 						current = current->left;
 					}
 				}
-				else if (*current->value > *X) {
+				else if (*current->value < *X) {
 					if (current->right == nullptr) {
 						current->right = new node(X, current);
 						break;

@@ -18,7 +18,7 @@ int main()
 		if(tab[i]!=1)
 			heap->push(&tab[i]);
 	}
-	cin >> q;
+	/*cin >> q;
 	for (int i = 0; i < q; i++)
 	{
 		cin >> k >> c;
@@ -27,7 +27,7 @@ int main()
 			if (c == 's')heap->Collatz_s();
 			else if (c == 'l')heap->Collatz_l;
 		}
-	}
+	}*/
 	for (int i = 0; i < n; i++)
 	{
 		if (tab[i] == 0)cout << "m";
@@ -35,4 +35,5 @@ int main()
 		cout << " ";
 	}
 
+	return 0;
 }
